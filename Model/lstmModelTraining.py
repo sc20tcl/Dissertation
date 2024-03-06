@@ -8,6 +8,10 @@ from tensorflow.keras.optimizers import Adam
 # Load and preprocess data with date range filtering
 def load_and_preprocess_data(filepath, train_start_date, train_end_date, test_start_date, test_end_date):
     data = pd.read_csv(filepath, parse_dates=['period'], index_col='period')
+
+    # # Filter the dataset for every 2 minutes
+    # data = data[::2] 
+
     train_data = data[train_start_date:train_end_date]
     test_data = data[test_start_date:test_end_date]
     
@@ -16,6 +20,7 @@ def load_and_preprocess_data(filepath, train_start_date, train_end_date, test_st
     test_scaled = scaler.transform(test_data['count'].values.reshape(-1, 1))
     
     return train_scaled, test_scaled, scaler
+
 
 # Function to create dataset for LSTM
 def create_dataset(data, look_back=1):
@@ -56,10 +61,10 @@ def process_file(filepath, train_start_date, train_end_date, test_start_date, te
     train_and_test_model(model, X_train, y_train, X_test, y_test)
 
 # Define your date ranges for training and testing
-train_start_date = '1998-04-30 21:30:00'
-train_end_date = '1998-05-30 21:30:00'  
-test_start_date = '1998-05-31 21:30:00' 
-test_end_date = '1998-06-30 21:30:00'    
+train_start_date = '1998-06-06 21:30:00'
+train_end_date = '1998-06-14 21:30:00'  
+test_start_date = '1998-07-06 21:30:00' 
+test_end_date = '1998-07-07 10:30:00'    
 
-filepath = '/mnt/data/RequstsPerMinute.csv'
+filepath = '../RequstsPerMinute.csv' 
 process_file(filepath, train_start_date, train_end_date, test_start_date, test_end_date)
