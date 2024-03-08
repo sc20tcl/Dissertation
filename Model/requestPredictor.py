@@ -8,7 +8,6 @@ from joblib import load
 data_path = '../RequstsPerMinute.csv'  
 data = pd.read_csv(data_path, parse_dates=['period'])
 
-# Specified start and stop timestamps
 start_timestamp = pd.to_datetime('1998-07-11 11:30:00')
 stop_timestamp = pd.to_datetime('1998-07-11 11:50:00')
 filtered_data = data[(data['period'] >= start_timestamp) & (data['period'] <= stop_timestamp)]
