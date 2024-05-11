@@ -8,7 +8,6 @@ from azureml.core.model import Model
 def init():
     global model
     global scaler
-    # Load the model from the Azure ML model registry
     model_path = Model.get_model_path('lstm_model')
     scaler_path = Model.get_model_path('scaler')
     model = load_model(model_path)

@@ -8,11 +8,11 @@ export let options = {
 };
 
 const urls = [
-    'http://4.159.57.103:8080/tools.descartes.teastore.webui/category?category=2&page=1',
-    'http://4.159.57.103:8080/tools.descartes.teastore.webui/category?category=3&page=1',
-    'http://4.159.57.103:8080/tools.descartes.teastore.webui/category?category=4&page=1',
-    'http://4.159.57.103:8080/tools.descartes.teastore.webui/product?id=207',
-    'http://4.159.57.103:8080/tools.descartes.teastore.webui/category?category=6&page=1'
+    'http://4.158.24.106:8080/tools.descartes.teastore.webui/category?category=2&page=1',
+    'http://4.158.24.106:8080/tools.descartes.teastore.webui/category?category=3&page=1',
+    'http://4.158.24.106:8080/tools.descartes.teastore.webui/category?category=4&page=1',
+    'http://4.158.24.106:8080/tools.descartes.teastore.webui/product?id=207',
+    'http://4.158.24.106:8080/tools.descartes.teastore.webui/category?category=6&page=1'
 ];
 
 export default function () {

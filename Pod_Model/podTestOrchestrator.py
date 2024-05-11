@@ -6,7 +6,7 @@ import re
 import pandas as pd
 
 prometheus_pod_query = 'avg(sum(rate(container_cpu_usage_seconds_total{namespace="default", pod=~"teastore-webui-.*", container!="POD", container!=""}[2m])) by (pod))' 
-prometheus_node_query = '100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle", instance="10.224.0.12:9100"}[1m])) * 100)'
+prometheus_node_query = '100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle", instance="10.224.0.13:9100"}[1m])) * 100)'
 prometheus_url = 'http://172.165.91.160:9090'
 replica_count = 1
 
@@ -100,7 +100,7 @@ def run_test(filepath, replica_array):
     time.sleep(600)
 
 
-with open("/directory-test.txt", 'w') as file:
+with open("directory-test.txt", 'w') as file:
             file.write("This is a test file created by Python.\n")
 
 replica_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -108,8 +108,8 @@ replica_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for replicas in replica_array:
     print("replicas: ", replicas)
     scale_deployment("teastore-webui", replicas)
-    print("1 minute cool down...")
-    time.sleep(120)
+    print("5 minute cool down...")
+    time.sleep(300)
     file_path = f'pod_model_results_{replicas}.csv'
     run_test(file_path, replica_array) 
 
