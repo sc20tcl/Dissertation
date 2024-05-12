@@ -11,8 +11,8 @@ def query_traffic(timestamp):
 
     encoded_timestamp = timestamp.replace(' ', '%20')
     full_url = f"{base_url}?timestamp={encoded_timestamp}"
-    response = requests.get(full_url)
-    print(full_url)
+    response = requests.get(base_url)
+    print(base_url)
     
     if response:
         json_response = response.json() 
@@ -82,8 +82,10 @@ def main(time_stamp):
         print("Deployment failed to scale")
 
 if __name__ == "__main__":
+    response = requests.post('http://20.33.62.78:5001/reset')
+    print(response)
     start_time = datetime.strptime("1998-06-24 00:00:00", "%Y-%m-%d %H:%M:%S")
-    end_time = datetime.strptime("1998-06-24 00:18:00", "%Y-%m-%d %H:%M:%S")
+    end_time = datetime.strptime("1998-06-24 00:16:00", "%Y-%m-%d %H:%M:%S")
 
     current_time = start_time
 
