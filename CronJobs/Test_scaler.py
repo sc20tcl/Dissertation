@@ -20,12 +20,6 @@ def query_traffic(timestamp):
         return traffic_value
     else:
         return 0
-    
-def update_history(new_measurement):
-    traffic_history.append(new_measurement)
-
-    if len(traffic_history) > 15:
-        traffic_history.pop(0)
 
 def calculate_desired_pods(requests_per_minute):
     return math.ceil(requests_per_minute / 5000)
